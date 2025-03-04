@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deploy
+  labels:
+    app: httpd-deploy
+spec:
+  replicas: 10
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: httpd-deploy
+  template:
+    metadata:
+      name: httpd-deploy
+      labels:
+        app: httpd-deploy
+    spec:
+      containers: 
+       - name: httpd-container
+         image: httpd
+      tolerations:
+        - key: "type"
+          operator: "Equal"
+          value: "work2"
+          effect: "NoSchedule"
