@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: path-based-routing-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: "nestcloud.icu"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /nginx
+            backend:
+              service:
+                name: nginx-svc
+                port:
+                  number: 80
+    - host: "nestcloud.icu"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /httpd
+            backend:
+              service:
+                name: httpd-svc
+                port:
+                  number: 80
+    - host: "nestcloud.icu"
+      http:
+        paths:
+          - pathType: Prefix
+            path: /phpmyadmin
+            backend:
+              service:
+                name: phpmyadmin-svc
+                port:
+                  number: 80
