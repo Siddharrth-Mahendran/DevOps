@@ -1273,3 +1273,28 @@ kubectl get no
 ifcomfig
 ifconfig
 init 0
+git
+ll
+git init
+git status
+git remote add origin https://github.com/Siddharrth-Mahendran/DevOps.git
+git add .
+git status
+git commit -m "devops yaml file"
+git pull origin main --rebase
+git push origin main
+git push 
+git status
+git commit
+git config --global user.name "Siddharrth-Mahendran"
+git commit
+git commit -m "devops yaml file"
+git push
+git pull origin main --rebase
+git push origin main
+git push 
+git push --force origin main
+git status
+ll
+ifconfig
+init 0
